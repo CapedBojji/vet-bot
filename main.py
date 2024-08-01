@@ -53,7 +53,7 @@ class Browser:
         # self.options.add_argument("--headless")
         # self.driver = uc.Chrome(options=self.options)
         self.driver = webdriver.Chrome(options=self.options) 
-        self.driver.get("https://idp.amazon.work/idp/profile/SAML2/Unsolicited/SSO?")
+        self.driver.get("https://atoz-login.amazon.work/")
 
     def is_logged_in(self):
         return self.driver.current_url == LOGGED_IN_URL
