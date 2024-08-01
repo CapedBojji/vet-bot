@@ -13,7 +13,7 @@ WEEKDAYS = [
     "Monday",
 "Wednesday",
 "Thursday",
-"Tuesday",
+"Saturday",
 ]
 
 
@@ -24,7 +24,7 @@ LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
 USERNAME = "laudboat"
 
-PASSWORD = "BadGyla@02"
+PASSWORD = "OVOxcR6cTXSD"
 
 HOURS_TO_RUN = 10  # Hours
 
@@ -263,7 +263,7 @@ def main():
             for i in range(days_to_run):
                 print(i)  
                 browser.check_automatic_sign_out()
-                if i == 1 or i == 2:
+                if i== 0 or i == 1 or i == 2:
                     print("Skipping")
                     today = add_one_day(today)
                     continue
