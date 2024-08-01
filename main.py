@@ -2,18 +2,18 @@ STALL_AFTER_LOGIN = 20
 
 NUMBER_OF_DAYS = 11
 
-EARLIEST_TIME = "10:00am"
+EARLIEST_TIME = "07:00am"
 
-LATEST_TIME = "11:30pm"
+LATEST_TIME = "06:00pm"
 
 LONGEST_SHIFT = 12
 
 WEEKDAYS = [
+    "Sunday",
     "Monday",
 "Wednesday",
-"Friday",
 "Thursday",
-"Saturday",
+"Tuesday",
 ]
 
 
@@ -22,9 +22,9 @@ CHROME_PROFILE_DIRECTORY_PATH = r"/mnt/c/Users/caped/AppData/Local/Google/Chrome
 LOGIN_URL = "https://atoz.amazon.work"
 LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
-USERNAME = ""
+USERNAME = "Clemobre"
 
-PASSWORD = ""
+PASSWORD = "BadGyla@02"
 
 HOURS_TO_RUN = 10  # Hours
 
@@ -56,11 +56,7 @@ class Browser:
         self.driver.get("https://atoz.amazon.work")
 
     def is_logged_in(self):
-        try:
-            self.driver.current_url = LOGGED_IN_URL
-            return False
-        except:
-            return True
+        return self.driver.current_url == LOGGED_IN_URL
 
     def login(self):
         uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
@@ -253,6 +249,7 @@ def time_diff(time1, time2):
 def main():
     start = time.time()
     browser = Browser()
+    time.sleep(30)
     if not browser.is_logged_in():
         browser.login()
     browser.check_verify()
