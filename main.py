@@ -19,7 +19,7 @@ WEEKDAYS = [
 
 CHROME_PROFILE_DIRECTORY_PATH = r"/mnt/c/Users/caped/AppData/Local/Google/Chrome/User Data"
 
-LOGIN_URL = "https://atoz.amazon.work"
+LOGIN_URL = "https://idp.amazon.work/"
 LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
 USERNAME = "laudboat"
