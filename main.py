@@ -249,7 +249,7 @@ def time_diff(time1, time2):
 def main():
     start = time.time()
     browser = Browser()
-    time.sleep(30)
+    time.sleep(10)
     if not browser.is_logged_in():
         browser.login()
     browser.check_verify()
