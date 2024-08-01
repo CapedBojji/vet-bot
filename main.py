@@ -22,7 +22,7 @@ CHROME_PROFILE_DIRECTORY_PATH = r"/mnt/c/Users/caped/AppData/Local/Google/Chrome
 LOGIN_URL = "https://atoz.amazon.work"
 LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
-USERNAME = "Clemobre"
+USERNAME = "laudboat"
 
 PASSWORD = "BadGyla@02"
 
