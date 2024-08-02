@@ -2,14 +2,13 @@ STALL_AFTER_LOGIN = 20
 
 NUMBER_OF_DAYS = 11
 
-EARLIEST_TIME = "10:00am"
+EARLIEST_TIME = "11:30am"
 
 LATEST_TIME = "11:30pm"
 
 LONGEST_SHIFT = 12
 
 WEEKDAYS = [
-    "Sunday",
     "Monday",
 "Wednesday",
 "Thursday",
@@ -22,9 +21,9 @@ CHROME_PROFILE_DIRECTORY_PATH = r"/mnt/c/Users/caped/AppData/Local/Google/Chrome
 LOGIN_URL = "https://idp.amazon.work/idp/profile/SAML2/Unsolicited/SSO?"
 LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
-USERNAME = ""
+USERNAME = "shamield"
 
-PASSWORD = "OVOxcR6cTXSD"
+PASSWORD = "$ham1810!!"
 
 HOURS_TO_RUN = 10  # Hours
 
