@@ -24,9 +24,9 @@ LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
 USERNAME = "laudboat"
 
-PASSWORD = ""
+PASSWORD = "OVOxcR6cTXSD"
 
-HOURS_TO_RUN = 10  # Hours
+HOURS_TO_RUN = 12  # Hours
 
 SECONDS_BETWEEN_CHECKS = 10
 
