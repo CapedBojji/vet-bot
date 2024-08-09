@@ -42,6 +42,13 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium import webdriver
 from datetime import date, timedelta
+import logging
+
+# Create a logger
+logger = logging.getLogger('mylogger')
+
+handler = logging.FileHandler('mylog.log')
+logger.addHandler(handler)
 
 class Browser:
     
@@ -62,10 +69,12 @@ class Browser:
         # Check for associate login page
         uname = self.driver.find_element(By.XPATH, "//input[@id='associate-login-input']")
         if uname is None:
+            logger.error("Could not find associate login input")
             uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
             if uname is None:
                 raise Exception("Could not find login input")
         else:
+            logger.info("Found associate login input")
             uname.clear()
             uname.send_keys(USERNAME)
             submit = self.driver.find_element(By.XPATH, "//button[@id='login-form-login-btn']")
