@@ -59,6 +59,7 @@ class Browser:
         return self.driver.current_url == LOGGED_IN_URL
 
     def login(self):
+
         uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
         uname.send_keys(USERNAME)
         pword = self.driver.find_element(By.XPATH, "//input[@id='password']")
@@ -256,7 +257,6 @@ def main():
     browser.save_cookies()
     time.sleep(STALL_AFTER_LOGIN)
     while time.time() - start < HOURS_TO_RUN * 60 * 60:
-        try:
             done = time.time()
             today = get_today_date()
             days_to_run = NUMBER_OF_DAYS
@@ -276,8 +276,6 @@ def main():
                 time.sleep(1)
             while time.time() - done < SECONDS_BETWEEN_CHECKS:
                 time.sleep(1)
-        except Exception as ex:
-            pass
     browser.exit()
 
 if __name__ == "__main__":
