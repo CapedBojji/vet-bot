@@ -27,7 +27,7 @@ USERNAME = "laudboat"
 PASSWORD = "OVOxcR6cTXSD"
 
 HOURS_TO_RUN = 12  # Hours
-
+STALL_FOR_PAGE_LOAD = 3  # Seconds
 SECONDS_BETWEEN_CHECKS = 10
 
 import datetime
@@ -60,7 +60,15 @@ class Browser:
 
     def login(self):
         # Check for associate login page
-        uname = self.driver.find_element(By.XPATH, "//input[@id="]")
+        uname = self.driver.find_element(By.XPATH, "//input[@id='associate-login-input']")
+        if uname is None:
+            uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
+            if uname is None:
+                raise Exception("Could not find login input")
+        else:
+            uname.send_keys(USERNAME)
+            submit = self.driver.find_element(By.XPATH, "//button[@id='
+            
         uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
         uname.send_keys(USERNAME)
         pword = self.driver.find_element(By.XPATH, "//input[@id='password']")
