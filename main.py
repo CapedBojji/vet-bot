@@ -46,6 +46,7 @@ import logging
 
 # Create a logger
 logger = logging.getLogger('mylogger')
+logger.setLevel(level=logging.INFO)
 
 handler = logging.FileHandler('mylog.log')
 logger.addHandler(handler)
