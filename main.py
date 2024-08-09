@@ -67,9 +67,11 @@ class Browser:
                 raise Exception("Could not find login input")
         else:
             uname.send_keys(USERNAME)
-            submit = self.driver.find_element(By.XPATH, "//button[@id='
-            
-        uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
+            submit = self.driver.find_element(By.XPATH, "//button[@id='login-form-login-btn']")
+            submit.click()
+            time.sleep(STALL_FOR_PAGE_LOAD)
+            uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
+
         uname.send_keys(USERNAME)
         pword = self.driver.find_element(By.XPATH, "//input[@id='password']")
         pword.send_keys(PASSWORD)
