@@ -62,7 +62,6 @@ class Browser:
         # Check for associate login page
         uname = self.driver.find_element(By.XPATH, "//input[@id='associate-login-input']")
         if uname is None:
-            print()
             uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
             if uname is None:
                 raise Exception("Could not find login input")
