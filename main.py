@@ -59,7 +59,8 @@ class Browser:
         return self.driver.current_url == LOGGED_IN_URL
 
     def login(self):
-
+        # Check for associate login page
+        uname = self.driver.find_element(By.XPATH, "//input[@id="]")
         uname = self.driver.find_element(By.XPATH, "//input[@id='login']")
         uname.send_keys(USERNAME)
         pword = self.driver.find_element(By.XPATH, "//input[@id='password']")
@@ -257,25 +258,25 @@ def main():
     browser.save_cookies()
     time.sleep(STALL_AFTER_LOGIN)
     while time.time() - start < HOURS_TO_RUN * 60 * 60:
-            done = time.time()
-            today = get_today_date()
-            days_to_run = NUMBER_OF_DAYS
-            for i in range(days_to_run):
-                print(i)  
-                browser.check_automatic_sign_out()
-                if i== 0 or i == 1 or i == 2:
-                    print("Skipping")
-                    today = add_one_day(today)
-                    continue
-                if (str.capitalize(get_day_of_week(today)) in WEEKDAYS):
-                    browser.navigate_to_date(today)
-                    # Wait for the page to load
-                    time.sleep(1)
-                    browser.pick_shifts()
+        done = time.time()
+        today = get_today_date()
+        days_to_run = NUMBER_OF_DAYS
+        for i in range(days_to_run):
+            print(i)  
+            browser.check_automatic_sign_out()
+            if i== 0 or i == 1 or i == 2:
+                print("Skipping")
                 today = add_one_day(today)
+                continue
+            if (str.capitalize(get_day_of_week(today)) in WEEKDAYS):
+                browser.navigate_to_date(today)
+                # Wait for the page to load
                 time.sleep(1)
-            while time.time() - done < SECONDS_BETWEEN_CHECKS:
-                time.sleep(1)
+                browser.pick_shifts()
+            today = add_one_day(today)
+            time.sleep(1)
+        while time.time() - done < SECONDS_BETWEEN_CHECKS:
+            time.sleep(1)
     browser.exit()
 
 if __name__ == "__main__":
