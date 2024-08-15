@@ -9,9 +9,9 @@ LATEST_TIME = "12:00am"
 LONGEST_SHIFT = 12
 
 WEEKDAYS = [
-    "Sunday"
+    "Sunday",
     "Monday",
-    "Tuesday"
+    "Tuesday",
 "Wednesday",
 "Saturday",
 "Friday"
