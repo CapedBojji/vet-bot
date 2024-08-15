@@ -11,9 +11,10 @@ LONGEST_SHIFT = 12
 WEEKDAYS = [
     "Sunday"
     "Monday",
+    "Tuesday"
 "Wednesday",
-"Thursday",
 "Saturday",
+"Friday"
 ]
 
 
