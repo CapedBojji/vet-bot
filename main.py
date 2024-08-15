@@ -1,6 +1,6 @@
 STALL_AFTER_LOGIN = 20
 
-NUMBER_OF_DAYS = 11
+NUMBER_OF_DAYS = 14
 
 EARLIEST_TIME = "10:00am"
 
@@ -137,13 +137,12 @@ class Browser:
     def check_automatic_sign_out(self):
         try:
             element = self.driver.find_element(By.XPATH, ".//div[@id='session-expires-modal']")
-            print(f'Session expires modal: {element is not None}')
             if element.is_displayed():
-                print(f'Session expires modal displayed')
+                logger.info("Session expires modal displayed")
                 button = self.driver.find_element(By.XPATH, ".//button[@id='session-expires-modal-btn-stay-in']")
                 button.click()
                 time.sleep(2)
-                print("Stayed in")
+                logger.info("Clicked stay in")
         except:
             pass
         
