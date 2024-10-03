@@ -13,8 +13,7 @@ WEEKDAYS = [
     "Monday",
     "Tuesday",
 "Wednesday",
-"Saturday",
-"Friday"
+"Thursday"
 ]
 
 
@@ -55,13 +54,13 @@ logger.addHandler(handler)
 class Browser:
     
     def __init__(self):
-        self.options = ChromeOptions()
-        self.options.add_argument(f"--user-data-dir={CHROME_PROFILE_DIRECTORY_PATH}")
-        self.options.add_argument(f"--profile-directory=Default")
+        # self.options = ChromeOptions()
+        # self.options.add_argument(f"--user-data-dir={CHROME_PROFILE_DIRECTORY_PATH}")
+        # self.options.add_argument(f"--profile-directory=Default")
         # self.options.binary_location = "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
         # self.options.add_argument("--headless")
         # self.driver = uc.Chrome(options=self.options)
-        self.driver = webdriver.Chrome(options=self.options) 
+        self.driver = webdriver.Edge()
         self.driver.get("https://atoz-login.amazon.work/")
 
     def is_logged_in(self):
@@ -91,7 +90,25 @@ class Browser:
         submit = self.driver.find_element(By.XPATH, "//button[@id='buttonLogin']")
         submit.click()
         time.sleep(STALL_AFTER_LOGIN)
+    
+    def disable_noti(self):
+        try:
+            element = self.driver.find_element(By.XPATH, "/html/body/div[1]/div[1]/div[5]")
+            self.driver.execute_script("arguments[0].style.display = 'none';", element)
+        except:
+            pass
 
+        try:
+            element = self.driver.find_element(By.XPATH, "/html/body/div[5]")
+            self.driver.execute_script("arguments[0].style.display = 'none';", element)
+        except:
+            pass
+        
+        try:
+            element = self.driver.find_element(By.XPATH, "/html/body/div[3]")
+            self.driver.execute_script("arguments[0].style.display = 'none';", element)
+        except:
+            pass
     def authenticate(self):
         element = self.driver.find_element(By.XPATH, "//input[@value='2']")
         element.click()
@@ -146,10 +163,11 @@ class Browser:
         except:
             pass
         
-
     def pick_shifts(self):
+        self.disable_noti()
         print("Picking shifts")
         for row in self.driver.find_elements(By.XPATH, "//div[@role='listitem']"):
+            self.disable_noti()
             print("Checking row")
             try:
                 # Grab add shift button, will error if it's not there thus skipping the row
@@ -196,12 +214,16 @@ class Browser:
                     if shift_end > prefered_end or shift_end < prefered_start:
                         continue
                 print("Shift is good")
+                self.check_automatic_sign_out()
+                self.disable_noti()
                 # If all checks pass, click the add shift button
                 add_shift.click()
                 time.sleep(0.5)
                 button = self.driver.find_element(By.XPATH, "//button[@data-test-id='AddOpportunityModalSuccessDoneButton']")
+                self.check_automatic_sign_out()
                 button.click()
                 time.sleep(0.5)
+                
             except Exception as ex:
                 pass
 
