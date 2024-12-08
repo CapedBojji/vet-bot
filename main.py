@@ -22,9 +22,9 @@ CHROME_PROFILE_DIRECTORY_PATH = r"/mnt/c/Users/caped/AppData/Local/Google/Chrome
 LOGIN_URL = "https://idp.amazon.work/idp/profile/SAML2/Unsolicited/SSO?"
 LOGGED_IN_URL = "https://atoz.amazon.work/shifts"
 
-USERNAME = "laudboat"
+USERNAME = ""
 
-PASSWORD = "OVOxcR6cTXSD"
+PASSWORD = ""
 
 HOURS_TO_RUN = 12  # Hours
 STALL_FOR_PAGE_LOAD = 3  # Seconds
